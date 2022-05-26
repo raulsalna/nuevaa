@@ -1,6 +1,10 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use Laravel\Passport\Http\Controllers\ClientController;
+// use App\Http\Controllers\ClientController;
+//use \laravel\passport\src\Http\Controllers\ClientController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,3 +30,10 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 });
+
+
+
+Route::get('/client', [ClientController::class, 'index'])->middleware('auth');
+
+//Route::get('/client', function () {return view('client');});
+

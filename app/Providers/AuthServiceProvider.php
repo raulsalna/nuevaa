@@ -3,10 +3,8 @@
 namespace App\Providers;
 
 use Laravel\Passport\Passport;
-
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Gate;
-
 use App\Models\Passport\AuthCode;
 use App\Models\Passport\Client;
 use App\Models\Passport\PersonalAccessClient;
@@ -47,8 +45,8 @@ class AuthServiceProvider extends ServiceProvider
 
          Passport::hashClientSecrets();
         //
-        // if (! $this->app->routesAreCached()) {
-        //     Passport::routes();
-        // }
+        if (! $this->app->routesAreCached()) {
+            Passport::routes();
+        }
     }
 }
