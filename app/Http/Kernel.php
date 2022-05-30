@@ -17,6 +17,7 @@ class Kernel extends HttpKernel
      * @var array<int, class-string|string>
      */
     protected $middleware = [
+        \Fruitcake\Cors\HandleCors::class,
         // \App\Http\Middleware\TrustHosts::class,
         \Fruitcake\Cors\HandleCors::class,
         \App\Http\Middleware\TrustProxies::class,
@@ -26,6 +27,7 @@ class Kernel extends HttpKernel
         \App\Http\Middleware\TrimStrings::class,
         \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
         //\Barryvdh\Cors\HandleCors::class,
+        \App\Http\Middleware\Cors::class,
 
 
     ];
@@ -49,7 +51,7 @@ class Kernel extends HttpKernel
             // \Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful::class,
             'throttle:api',
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
-            \Fruitcake\Cors\HandleCors::class,
+            // \Fruitcake\Cors\HandleCors::class,
 
            // \Barryvdh\Cors\HandleCors::class,
 
@@ -77,7 +79,11 @@ class Kernel extends HttpKernel
         'client' => CheckClientCredentials::class,
         'scopes' => \Laravel\Passport\Http\Middleware\CheckScopes::class,
         'scope' => \Laravel\Passport\Http\Middleware\CheckForAnyScope::class,
-        'cors' => \Barryvdh\Cors\Middleware\HandleCors::class,
+        // 'cors' => \Barryvdh\Cors\Middleware\HandleCors::class,
+         'cors' => \Fruitcake\Cors\HandleCors::class,
+        //'cors' => \App\Http\Middleware\Cors::class,
+
+
 
 
     ];

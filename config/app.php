@@ -183,6 +183,7 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
         Laravel\Passport\PassportServiceProvider::class,
+        FruitCake\Cors\CorsServiceProvider::class,
        // Fruitcake\Cors\CorsServiceProvider::class,
         //\Barryvdh\Cors\ServiceProvider::class,
         //Barryvdh\Cors\ServiceProvider::class,
